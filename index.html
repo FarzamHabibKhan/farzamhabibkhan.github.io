@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+ <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+ <link rel="stylesheet" href="/css/style.css">
+ <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@300&amp;family=Bitter:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+ <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+ <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Arvo&family=Nunito:wght@200&display=swap" rel="stylesheet">
+  
+<style>
+html, body, button, input, select, textarea, .pure-g [class *="pure-u"] {
+    font-family: Bitter, Palatino, serif;
+}
+
+body {
+    background: #CACACA url(/img/bg-dk.jpg);
+}
+
+table, img {
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#navbar {
+    background: #000;
+    color: #999;
+    -webkit-box-shadow: 0 0 5px #666;
+    box-shadow: 0 0 5px #666;
+    font-family: "Fira Sans Condensed", sans-serif;
+}
+
+#navbar a {
+    color: #999;
+}
+
+#navbar a:hover {
+    color: #dcc;
+    background: #433;
+}
+
+#navbar .pure-menu-heading {
+    font-size: 1.5em;
+    text-transform: none;
+}
+
+#blurb {
+    padding: 21px 0 21px 120px;
+    font-style: italic;
+    text-shadow: 0 1px 0 rgba(225, 225, 225, 0.5);
+    background: url(/img/blurb-arrow.png) 60px -5px no-repeat;
+}
+
+.pure-menu-item .pure-menu-link i {
+    vertical-align: middle;
+}
+
+.pad {
+    padding: 1em;
+}
+
+.hide {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .pad {
+        padding: 0.1em;
+    }
+}
+
+#content {
+    margin: 0 auto;
+    line-height: 1em;
+}
+
+#content li {
+    margin: 1em 0;
+}
+
+#sidebar .pure-menu-item a {
+    color: #900;
+}
+
+#sidebar .pure-menu-item a small {
+    color: #444;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.8em;
+    padding: 1em;
+}
+
+article, div.list {
+    padding: 0 2em;
+    background: #eee url(/img/bg.png);
+    border: 1px solid #999;
+    -webkit-box-shadow: 0 0 5px #999;
+    box-shadow: 0 0 5px #999;
+}
+
+div.list {
+    margin: 0.4em;
+    flex: 1;
+    padding: 0;
+}
+
+div.list h3 {
+    margin-top: 0.5em;
+}
+
+div.list .pad {
+    padding: 0.5em 1em;
+}
+
+div.list time {
+    font-size: 0.8em;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #222;
+    background-color: #ddd;
+    margin:1px;
+    float: right;
+    padding: 4px;
+    width: 48px;
+    box-shadow: 0 0 2px #666;
+}
+
+section.toc h2 {
+    padding: 0;
+    margin: 0.5em 0;
+}
+
+section.toc h3 {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.date {
+    color: #555;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    font-size: 0.8em;
+    padding-right: 1em;
+}
+
+.tags {
+    font-size: 0.9em;
+    font-family: "Fira Sans Condensed", sans-serif;
+    margin: 0.2em;
+    display: inline-block;
+    color: #fff;
+    border-radius: 16px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: #900;
+    padding: 0.1em 0.5em
+}
+
+.tags .pure-button {
+    
+}
+
+.pure-button {
+    
+}
+
+
+#hero {
+    text-align: center; 
+    font-family: 'Overlock'; 
+    padding: 2em;
+}
+
+span.author {
+    float: right;
+}
+
+h1, h2, h3 {
+    font-weight: normal;
+    margin: 1.5em 0 0.5em 0;
+    line-height: 1.4em;
+}
+
+h1 {
+    font-size: 3em;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+    h3 {
+        font-size: 1.3em;
+    }
+    ol, ul {
+        padding: 0 1.5em;
+    }
+}
+
+a {
+    color: #900;
+    text-decoration: none;
+}
+
+.sc {
+    color: #766;
+    padding: 4px;
+    transition: all 1s;
+}
+
+.sc:hover {
+    color: #900;
+    -webkit-transform: rotate(11deg);
+    transform: scale(1.2);
+}
+
+.pure-menu-horizontal.pure-menu-scrollable {
+    padding: 0;
+}
+
+.pure-menu a, .pure-menu .pure-menu-heading {
+    white-space: normal;
+}
+
+#navbar .pure-menu-link {
+    text-align: center;
+    padding: 1em;
+}
+
+#sidebar .pure-menu {
+    background: #ddd;
+}
+
+#sidebar h3 {
+    text-align: center;
+}
+
+#sidebar div button {
+    font-size: 80%;
+    margin: 4px;
+}
+
+/* Syntax Highlighting */
+pre {
+    padding: 1em;
+}
+pre, div.highlight {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.2em;
+}
+
+pre, code {
+    font-family: 'Menlo', 'Courier New', Courier, monospace;
+}
+
+div.highlight pre {
+    border: 0;
+    margin: 0;
+    padding-right: 0;
+}
+
+
+.pure-img {
+    margin: 0 auto;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+p{
+ line-height:1.5em;
+}
+#makefile{
+ padding: em;
+}
+#errors{
+ font-size: 0.9em;
+ letter-spacing:  0.5px;
+}
+</style>
+<title>64-bit OS kernel from scratch</title>
+</head>
+ 
+ 
+<body>
+<a name="up"></a>
+ <div class="container">
+  
+  <!-- NAVIGATION BAR -->
+  <div id="navbar" class="pure-menu pure-menu-open pure-menu-horizontal pure-menu-scrollable">
+    <a href="" class="pure-menu-heading"> Farzam Habib Khan  </a>
+  </div>
+  <div class="pure-u-1">
+    <div class="pad"></div>
+  </div>
+  
+  <div class="pure-g">
+    <div id="content" class="pure-u-1 pure-u-md-3-4 pure-u-sm-1">
+      <div class="pad">
+        <div class="date">
+          <time pubdate="2021-04-15">April 15, 2021</time>
+          <span class="author">by Farzam Habib Khan</span>
+        </div>
+
+   <!-- ARTICLE -->
+   <article>
+    <h1><a href="">My 64-bit OS Kernel</a></h1>
+ 
+   <!-- Tags -->
+    <div>
+     <span class="tags">Assembly</span>
+     <span class="tags">C</span>
+     <span class="tags">Docker</span>
+     <span class="tags">Qemu</span>
+     <span class="tags">Makefile</span>
+    </div>
+ 
+    <h2 id="headings">Built-With</h2>
+    <ul>
+     <li><a href="https://code.visualstudio.com/">VSCode </a> (text editor) </li>
+     <li><a href="https://www.docker.com/">Docker </a> (for creating our build-environment) </li>
+     <li><a href="https://www.qemu.org/">Qemu </a>(for OS emulation)</li>
+    </ul>
+
+    <h2 id="headings">Languages Used</h2>
+    <ul><em>
+     <li>Assebmbly Language (for hardware specific code)</li>
+     <li> Nasm (to compile assembly code)</li>
+     <li>C Language</li>
+     <li>Make (for reading Makefile)</li> </em>
+    </ul>
+    
+    <h2 id="headings">Docker (Building Environment)</h2>
+    <h4 id="code-block-with-backticks">Commands</h4>
+    <ul>
+     <li>For building image:</li>
+     <pre><code>docker build buildenv -t myos-buildenv </code></pre>
+     <li><p>For entering build-environment (i.e virtual linux machine) using Windows cmd:<p></li>
+     <pre><code> docker run --rm -it -v "%cd%":/root/env myos-buildenv </code></pre>
+     <li>For building x86 Architecture:</li>
+     <pre><code>make build-x86_64</code></pre>
+     <li>For exiting build-environment:</li>
+     <pre><code> exit </code></pre>
+    </ul>
+    
+    <h4 id="code-block-with-backticks">Working</h4>
+    <ul><p> Docker is used to create the operating system build environment. 
+	   By ensuring the docker (daemon) to be running at the back, a docker image is created 
+	   by constructing a Dockerfile, which provides the specifications for creating 
+	   a Docker build environment image.</p></ul>
+    
+    
+    
+  <!-- Qemu -->
+    <h2 id="headings">Qemu (Emulation of Operating System)</h2>
+    <h4 id="code-block-with-backticks">Commands</h4>
+    <ul>
+     <li>For emulation using Qemu:</li>
+     <pre><code>path\to\qemu\qemu-system-x86_64" -cdrom dist/x86_64/kernel.iso </code></pre>
+     
+    </ul>
+    
+    <h4 id="code-block-with-backticks">Working</h4>
+    <ul><p>Qemu Emulator is used to emulate the operating system. By showing text on the emulator, we can ensure the smooth working of our operating system.</p></ul>
+    
+  
+    
+    <!-- Assembly -->
+    <h2 id="paragraph">x86 Assembly</h2> 
+    
+    <ul>
+     <!-- Boot loader -->
+     <li id="code-block-with-backticks"><p><strong>BootLoader:</strong>
+      A multi boot 2 specification is used to locate the operating system. </p></li>
+  
+    <li><p><strong id="code-block-with-backticks">Linker file:</strong>
+     used to link operating system together </p></li>
+     
+     <li><p><strong id="code-block-with-backticks">Iso file:</strong>
+     used to hold the operating system </p></li>
+     
+     <li><p><strong id="code-block-with-backticks">Main assembly:</strong>
+      <ul>
+       <li>used to set up a stack to link C code.</li>
+       <li>switch to 64-bit kernel by switching to <em>long mode.</em> using <strong>"Paging"</strong>
+	   which uses virtual machines to map virtual addresses to physical addresses. </li>
+       <li>used to call the main_kernel function from <em> main.c</em> file to print the text.</li>
+       </p></ul>
+    </ul>
+     
+       
+   <!-- C language -->
+   <h2 >C language</h2> 
+    <p>
+     <ul>
+      <li>Used to print text(Nust Logo) on the virtual OS emulator(Qemu).</li>
+      <li> Some functions created are: 
+       <ul><li><em>print_clear():</em> to clear the screen. </li>
+        <li><em>print_str():</em> to print text.</li>
+        <li><em>print_set_color():</em> to set-up foreground and background color for the text.</li>
+       </ul></li>
+       
+       </ul>
+      
+     <!-- MakeFile -->
+    <h2 >Makefile</h2> 
+    <p id="makefile">
+     Makefiles are used to recompile only the part of program which has changed.
+     <ul>
+     <li>It contains variables to hold all the <em>Assembly, C and Kernel</em> source files.</li>
+     <li>And their object files to compile each individual(assembly/C etc.) source file.</li>
+    <li> And in the end a bunch of commands to run to build the object files from the source files. </li>
+     <li><strong>.Phony</strong>  command which runs only when any of the object files get changed.</li></p>
+       </ul>
+     
+     
+      <!-- Errors-->
+    <h2 >Error Handling</h2> 
+    <p id="makefile">
+     Given below are a few common errors arose during the working alongwith their solutions.
+     <ul id="errors">
+     <pre><code>failed to solve with frontend dockerfile.v0: failed to create LLB definition: the Dockerfile cannot be empty</code></pre>
+     <li> For this error, make sure you have saved the data inside the Dockerfile (manually), as the text editor might not have saved it automatically, leaving the Dockerfile empty.</li> 
+     <br>
+      
+    <pre><code>TLS Handshake timeout</code></pre>
+     <li> This error occurs when you have slower internet connection, make sure to jump to faster connection and rebuil.</li> 
+    <br>
+    <pre><code>recipe for target 'build-x86_64' failed</code></pre>
+     <li>This error occurs when you have a systax error or any other error inside your code, make sure to double check your code.</li> 
+      <br>
+   <pre><code>'qemu' is not an internal or external command</code></pre>
+     <li>For this error, make sure to add the path to where qemu is installed in your PC.</li> 
+  <hr><br>
+</ul>
+<p style="text-align:center"> link to my <a href="https://github.com/FarzamHabibKhan/OS-kernel">Github Repository</a></p>
+
+  <br><br>
+  </article>
+ </div>
+ <div class="pad"></div>
+</div>
+ 
+<!-- SIDEBAR -->
+<div id="sidebar" class="pure-u-1 pure-u-md-1-4 pure-u-sm-1">
+    <div class="pad">
+        
+        <h3>About Article</h3>
+        <div style="text-align: center;">
+         <p><em>This website is created to describe the working of my recent build project,
+		in which I have created a 64-bit OS kernel using Assembly and C.</em> 
+            </p>
+        </div>
+
+        <h3>Latest Articles</h3>
+        <div class="pure-menu pure-menu-open">
+            <ul class="pure-menu-list">
+                
+                <li class="pure-menu-item">
+                    <a href="" class="pure-menu-link">My 64-bit OS Kernel<br>
+                        <small>Built 64-bit OS kernel from scratch</small>
+                    </a>
+                </li>
+            </ul>
+        </div>
+	
+	<h3>About Me</h3>
+        <div style="text-align: center;">
+         <p><em>Farzam Habib Khan,</em>I'm a student of Bachelors' in Computer Science at the National University of Science and Technology. 
+            </p>
+        </div> 
+
+	<h3>Profile/CV</h3>
+        <div style="text-align: center;">
+            <p> <strong>Name: </strong> Farzam Habib Khan</p>
+	    <p> <strong>Education: </strong>Undergraduate in Computer Science, Intermediate in CS, Matric</p>
+	    <p> <strong>CGPA: </strong> 3.6 </p>
+	    <p> <strong>SKills: </strong>Java, C, C++ Programming languages, x86 Assembly, Html, CSS, Javascript, PHP, Graphic Designing, Video Editing</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</body>
+</html>
